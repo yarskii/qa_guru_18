@@ -12,3 +12,7 @@ def open_cart():
     browser.config.driver_options = driver_options
 
     browser.config.base_url = 'https://demowebshop.tricentis.com/cart'
+
+    yield
+
+    browser.quit()
