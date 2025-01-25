@@ -28,10 +28,8 @@ class DemoShopAPI:
 
     def receive_a_response_to_the_request(self, response):
         response_json = response.json()
-        try:
-            if response_json['success']:
-                logging.info('Товар успешно добавлен.')
-            elif not response_json['success']:
-                logging.error(f'Ошибка при добавлении товара: {response_json['message']}')
-        except KeyError:
-            logging.error(f'Ошибка при добавлении товара: {response_json}')
+
+        if response_json['success']:
+            logging.info('Товар успешно добавлен.')
+        elif not response_json['success']:
+            logging.error(f'Ошибка при добавлении товара: {response_json['message']}')
